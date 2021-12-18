@@ -1,4 +1,5 @@
 #include <REGX52.H>
+#include <INTRINS.H>
 
 #define uint unsigned int
 #define uchar unsigned char
@@ -6,7 +7,7 @@
 sbit posEnable = 0xA7;
 sbit segEnable = 0xA6;
 
-uchar code ledNum[]={ 
+uchar ledNum[]={ 
                 0x3F,  //"0"
                 0x06,  //"1"
                 0x5B,  //"2"
@@ -22,8 +23,8 @@ uchar code ledNum[]={
 void Delay(uint cnt)		//@11.0592MHz
 {
 	unsigned char i, j;
-
     while (cnt--) {
+        _nop_();
         i = 2;
         j = 199;
         do
@@ -38,20 +39,24 @@ void lightNixie(uchar pos, uchar num) {
 
     // pos:1->8  idx:0->7 
     pos = (pos-1) % 8; 
-    // unsigned char mask = 0x01 << pos;
     posEnable = 1;
     P0 = ~(0x01 << pos);
     posEnable = 0;
 
     segEnable = 1;
     P0 = ledNum[num];
-    segEnable = 0;
+    segEnable = 0;   
 
-    Delay(1);
+    Delay(1); // this important, to display stable
 }
 
 void main() {
+    // lightNixie(2,3);
+    // uchar i = 0;
     while (1) {
-        lightNixie(1,2);
+        lightNixie(5, 1);
+        Delay(200);
+        lightNixie(6, 2);
+        Delay(200);
     }
 }
