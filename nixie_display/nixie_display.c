@@ -35,7 +35,7 @@ void Delay(uint cnt)		//@11.0592MHz
 }
 
 void lightNixie(uchar pos, uchar num) {
-    // choose which nixie should be light
+    // set nixie at position 'pos' display 'num'
 
     // pos:1->8  idx:0->7 
     pos = (pos-1) % 8; 
@@ -48,15 +48,15 @@ void lightNixie(uchar pos, uchar num) {
     segEnable = 0;   
 
     Delay(1); // this important, to display stable
-}
+    P0 = 0xFF; // clear all position-bit to remove shadow
+} 
 
 void main() {
-    // lightNixie(2,3);
-    // uchar i = 0;
+    uchar i = 0;
     while (1) {
-        lightNixie(5, 1);
-        Delay(200);
-        lightNixie(6, 2);
-        Delay(200);
+        for (i = 1; i <=8; i++) {
+            lightNixie(i, i);
+            // Delay(200);
+        }
     }
 }
