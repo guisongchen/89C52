@@ -14,6 +14,9 @@ void UART_receive_init() { //9600bps@11.0592MHz
 
     ET1 = 0; // disable timer 1 interrupt
     TR1 = 1; // start timer 1
+		
+	EA = 1; // CPU interrupt on
+	ES = 1; // serial port interrupt on
 }
 
 void UART_sendByte(uchar byte) {
@@ -21,3 +24,11 @@ void UART_sendByte(uchar byte) {
     while (TI == 0); // check flag
     TI = 0; // software reset
 }
+
+// void UART_routine() interrupt 4 {
+    // if (RI == 1) { // send done
+        // P1 = ~SBUF;
+        // UART_sendByte(SBUF);
+        // RI = 0; // software reset
+    // }
+// }
