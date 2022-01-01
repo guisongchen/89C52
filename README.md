@@ -1,1 +1,32 @@
 Toy codes using STC89C52RC.
+
+- [x] Bit operation & delay function
+  - led
+  - led_display
+  - nixie_display
+- [x] Key scanning
+  - key_matrix
+- [x] Timer and interrupt
+  - flowing_led_with_timer
+  - AT24C02
+  - HS0038
+  - Infrared_motor
+- [x] One wire
+  - DS18B20
+- [x] UART
+  - DS18B20
+  - AT24C02
+  - UART
+  - XPT2046
+- [x] EEPROM
+  - AT24C02
+- [x] IIC
+  - AT24C02
+- [x] Time
+  - DS1302
+- [x] Infrared
+  - HS0038
+  - Infrared_motor
+- [x] AD/DA
+  - XPT2046
+  - Infrared_motor
