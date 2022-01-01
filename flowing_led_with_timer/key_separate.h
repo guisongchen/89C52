@@ -4,4 +4,5 @@
 #include "common_header.h"
 
 uchar getKeySeperateNum();
+
 #endif  // CCC_KEY_SEPARATE_H

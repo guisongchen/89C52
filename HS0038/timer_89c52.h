@@ -10,5 +10,6 @@ uint timer_0_get_counter();
 void timer_0_counter_run(uchar flag);
 
 void timer_1_init();
+void timer_1_100us_init();
 
 #endif // CCC_TIMER_89C52_H

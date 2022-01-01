@@ -64,3 +64,22 @@ void timer_1_init() { // 1ms @ 11.0592MHz 12T
     EA = 1;
     PT1 = 0; // priority
 }
+
+void timer_1_100us_init() { // 100us @ 11.0592MHz 12T
+    // set TMOD
+    TMOD &= 0x0F; // reset timer 1
+    TMOD |= 0x10; // set timer mode for timer 1
+
+    // set initial timer value
+    TL1 = 0xA4;
+    TH1 = 0xFF;
+
+    // set TCON bit by bit
+    TF1 = 0;
+    TR1 = 1; // Enable timer 1
+
+    // set interrupt
+    ET1 = 1;
+    EA = 1;
+    PT1 = 0; // priority
+}
