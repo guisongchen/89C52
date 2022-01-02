@@ -20,9 +20,9 @@ Toy codes using STC89C52RC.
   - XPT2046
 - [x] EEPROM
   - AT24C02
-- [x] IIC
+- [x] I2C
   - AT24C02
-- [x] Time
+- [x] RTC (realtime clock)
   - DS1302
 - [x] Infrared
   - HS0038
